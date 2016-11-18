@@ -1,0 +1,117 @@
+\documentclass[11pt,twoside,openright]{memoir}
+\nonzeroparskip
+\setlength{\parindent}{0pt}
+
+\usepackage{trajan}
+
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[pass, paperwidth=7in, paperheight=10in, bindingoffset=.75in]{geometry}
+\usepackage{lmodern}
+\usepackage{listings}
+$if(tables)$
+\usepackage{longtable,booktabs}
+$endif$
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e}
+\usepackage{textcomp}
+
+
+\usepackage{titlesec}
+\titleformat{name=\chapter}[display]
+  {\bfseries\large}
+  {\titlerule}
+  {-12ex}
+  {\filleft\MakeUppercase\sffamily\huge}[\vspace{3ex}]
+\titlespacing*{\chapter}{0pt}{120pt}{6pt}
+\renewcommand\contentsname{Table of Contents}
+
+\usepackage[unicode=true]{hyperref}
+$if(colorlinks)$
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+$endif$
+\hypersetup{
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
+$endif$
+$if(colorlinks)$
+            colorlinks=true,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+            pdfborder={0 0 0},
+$endif$
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+{\bfseries\sffamily\noindent
+$if(series)$ {\Large $series$}\\[50pt]$endif$ % Subtitle
+{\Huge $title$}\\[35pt] % Book title
+{\huge $for(author)$$author$$sep$\\$endfor$} % Author name
+}
+\vfill
+\endgroup
+
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+\noindent Copyright \copyright\ 2016 Thomas Mailund\\ % Copyright notice
+%\noindent \textit{First printing, March 2013} % Printing/edition date
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+$if(toc)$
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+$endif$
+\setcounter{tocdepth}{1}
+%\setcounter{tocdepth}{$toc-depth$}
+\pagestyle{empty} % No headers
+\tableofcontents % Print the table of contents itself
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+$endif$
+
+
+%----------------------------------------------------------------------------------------
+%	BODY
+%----------------------------------------------------------------------------------------
+
+\pagestyle{Ruled}
+$body$
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

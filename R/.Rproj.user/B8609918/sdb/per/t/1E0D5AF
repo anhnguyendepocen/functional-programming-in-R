@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n(x <- rnorm(10))\n(categories <- sample(c(\"A\", \"B\", \"C\"), size = 10, replace = TRUE))\ntapply(x, categories, mean)\n\n(categories2 <- sample(c(\"X\", \"Y\"), size = 10, replace = TRUE))\ntapply(x, list(categories, categories2), mean)\n",
+    "created" : 1477823386308.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3702832335",
+    "id" : "1E0D5AF",
+    "lastKnownWriteTime" : 1471356311,
+    "last_content_update" : 1471356311,
+    "path" : "~/Dropbox/Misc. writing/Books/Advanced Statistical Programming in R/Functional Programming in R/R/tapply.R",
+    "project_path" : "tapply.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

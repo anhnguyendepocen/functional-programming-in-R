@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\nlst <- 1:5\n\nis_empty <- function(x) length(x) == 0\nfirst <- function(x) x[1]\nrest <- function(x) {\n     if (length(x) == 1) NULL else x[2:length(x)]\n}\n\nmy_sum_direct <- function(lst) {\n  if (is_empty(lst)) 0\n  else first(lst) + my_sum_direct(rest(lst))\n}\nmy_sum_acc <- function(lst, acc = 0) {\n  if (is_empty(lst)) acc\n  else my_sum_acc(rest(lst), first(lst) + acc)\n}\nmy_sum_cont <- function(lst, cont = identity) {\n  if (is_empty(lst)) cont(0)\n  else my_sum_cont(rest(lst), function(acc) cont(first(lst) + acc))\n}\n\nmy_sum_direct(lst)\nmy_sum_acc(lst)\nmy_sum_cont(lst)\n",
+    "created" : 1471507729062.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3723807386",
+    "id" : "DB3AC355",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : 1477823728421,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

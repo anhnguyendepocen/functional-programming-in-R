@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\nmake_node <- function(name, left = NULL, right = NULL) \n list(name = name, left = left, right = right)\n\nprint_tree <- function(tree) {\n   build_string <- function(node) {\n   if (is.null(node$left) && is.null(node$right)) {\n       node$name\n   } else {\n          left <- build_string(node$left)\n           right <- build_string(node$right)\n           paste0(\"(\", left, \",\", right, \")\")\n       }\n    }\n   build_string(tree)\n   }\n  \nsize_of_tree <- function(node) {\n   if (is.null(node$left) && is.null(node$right)) {\n     size <- 1\n   } else {\n     left_size <- size_of_tree(node$left)\n     right_size <- size_of_tree(node$right)\n     size <- left_size + right_size + 1\n   }\n  size\n}\n\nA <- make_node(\"A\")\nC <- make_node(\"C\", make_node(\"A\"), \n                   make_node(\"B\"))\nE <- make_node(\"E\", make_node(\"C\", make_node(\"A\"), make_node(\"B\")),\n                    make_node(\"D\"))\n  \ntrees <- list(A = A, C = C, E = E)\n\n\n\nnode_depth <- function(tree, name, depth = 0) {\n  if (is.null(tree))     return(NA)\n  if (tree$name == name) return(depth)\n  \n  left <- node_depth(tree$left, name, depth + 1)\n  if (!is.na(left)) return(left)\n  right <- node_depth(tree$right, name, depth + 1)\n  return(right)\n}\n\nnode_depth_B <- function(tree) node_depth(tree, \"B\")\nunlist(Map(node_depth_B, trees))\n\nunlist(Map(node_depth_B, trees), use.names = FALSE)\n\nhas_B <- function(node) {\n  if (node$name == \"B\") return(TRUE)\n  if (is.null(node$left) && is.null(node$right)) return(FALSE)\n  has_B(node$left) || has_B(node$right)\n}\nunlist(Map(node_depth_B, Filter(has_B, trees)), use.names = FALSE)\n",
+    "created" : 1477823363637.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "6059519",
+    "id" : "36D99381",
+    "lastKnownWriteTime" : 1471273773,
+    "last_content_update" : 1471273773,
+    "path" : "~/Dropbox/Misc. writing/Books/Advanced Statistical Programming in R/Functional Programming in R/R/trees.R",
+    "project_path" : "trees.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

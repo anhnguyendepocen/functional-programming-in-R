@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "rcurry2 <- function(f) function(y) function(x) f(x, y)\ncurry2 <- function(f) function(x) function(y) f(x, y)\n\nlibrary(purrr)\n\n## Filter\nkeep(1:5, rcurry2(`>`)(3))\ndiscard(1:5, rcurry2(`>`)(3))\n\nkeep(as.list(1:5), rcurry2(`>`)(3))\n\n\nevery(1:5, rcurry2(`>`)(0))\nevery(1:5, rcurry2(`>`)(3))\nsome(1:5, rcurry2(`>`)(3))\nsome(1:5, rcurry2(`>`)(6))\n\nkeep(1:5, ~ .x > 3)\ndiscard(1:5, ~ .x > 3)\n\nkeep(as.list(1:5), ~ .x > 3)\n\n## Map\n\nmap(1:5, ~ .x + 2)\nmap_dbl(1:5, ~ .x + 2)\n\nmap2(1:5, 6:10, ~ 2 * .x + .y)\nmap2_dbl(1:5, 6:10, ~ 2 * .x + .y)\n\npmap(list(1:5, 6:10, 11:15), function(x, y, z) x + y + z)\npmap_dbl(list(1:5, 6:10, 11:15), function(x, y, z) x + y + z)\n\nunlist(map_if(1:5, ~ .x %% 2 == 1, ~ 2*.x))\n\nmap_chr(map(keep(trees, ~ size_of_tree(.x) > 1), \"left\"),\n        print_tree)\n\n## Reduce\n\nreduce(1:5, `+`)\nreduce_right(1:5, `*`)\n\n## Others\n\n(x <- rnorm(10))\n(categories <- sample(c(\"A\", \"B\", \"C\"), size = 10, replace = TRUE))\nsplit(x, categories)\n",
+    "created" : 1477823373337.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "465325520",
+    "id" : "F217E75D",
+    "lastKnownWriteTime" : 1471420615,
+    "last_content_update" : 1471420615,
+    "path" : "~/Dropbox/Misc. writing/Books/Advanced Statistical Programming in R/Functional Programming in R/R/purrr.R",
+    "project_path" : "purrr.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\ncompose <- function(g, f) function(...) g(f(...))\numap <- compose(unlist, Map)\n\ncurry2 <- function(f) function(x) function(y) f(x, y)\numap(curry2(`+`)(2), 1:4)\n\nlibrary(pryr)\numap <- unlist %.% Map\numap(curry2(`+`)(2), 1:4)\n\nrmse <- sqrt %.% mean %.% function(x, y) (x - y)**2\nrmse(1:4, 2:5)\n\n`%;%` <- function(f, g) function(...) g(f(...))\nrmse <- (function(x, y) (x - y)**2) %;% mean %;% sqrt\nrmse(1:4, 2:5)\n",
+    "created" : 1477823370357.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3599019029",
+    "id" : "66CD2188",
+    "lastKnownWriteTime" : 1471422378,
+    "last_content_update" : 1471422378,
+    "path" : "~/Dropbox/Misc. writing/Books/Advanced Statistical Programming in R/Functional Programming in R/R/composition.R",
+    "project_path" : "composition.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
