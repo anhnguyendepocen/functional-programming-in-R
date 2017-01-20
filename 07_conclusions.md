@@ -13,6 +13,10 @@ We have seen how we can use linked lists (“next lists” in the terminology I 
 
 I will end the book here, but I hope it is not the end of your exploration of functional programming in R.
 
+If you liked this book, why not check out my [list of other books](http://wp.me/P9B2l-DN) or 
+[sign up to my mailing list](http://eepurl.com/cwIbR5)?
+
+
 ## Acknowledgements
 
 I would like to thank Duncan Murdoch and the people on the R-help mailing list for helping me work out a kink in lazy evaluation in the trampoline example.

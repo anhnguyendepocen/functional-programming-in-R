@@ -103,8 +103,6 @@ The function `eval` changes both scope and environment at the same time, but con
 
 ## Environment chains, scope, and function calls
 
-When you call a function in R, you first create an environment for that function. That environment is where its parameters will be stored and any local variables the function assigns to will go there as well. That environment is linked to another environment. If the function is defined inside another function it will be the environment in that function instantiation; if the function is called directly from the outermost level, it will be linked to the global environment. Depending on how the function is defined, there might be many such linked environment, and it is this chain of environments that determines the scope used to find a variable and get its value.
-
 When you call a function in R, you first create an environment for that function. That environment is where its parameters will be stored and any local variables the function assigns to will go there as well. That environment is linked to another environment. If the function is defined inside another function it will be the environment in that function instantiation; if the function is called directly from the outermost level, it will be linked to the global environment. Depending on how the function is defined there might be many such linked environment and it is this chain of environments that determines the scope used to find a variable and get its value.
 
 We need another example to see this in action. 
@@ -121,7 +119,7 @@ When I have need for more complex chain graphs I will use a graphical notation a
 
 ![Environment chain graph](figures/environment-chain-graph){#fig:environment-chain-graph}
 
-If we assume that there are no variables in the global environment when we start the program, we have the global environment `[]`. After we evaluate the first expression, the definition of function `f`, we have changed the global environment, so it now maps `"f` to that function.
+If we assume that there are no variables in the global environment when we start the program, we have the global environment `[]`.^[The global environment is actually a little more complex than the empty one we use here. It is nested inside environments where imported packages live. But for the purpose of this chapter, we do not need to worry about that.] After we evaluate the first expression, the definition of function `f`, we have changed the global environment, so it now maps `"f` to that function.
 
 ```
 ["f -> function(x) 2 * x]

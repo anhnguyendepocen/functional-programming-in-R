@@ -484,22 +484,22 @@ ff
 ## [[1]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8b6b175e00>
+## <environment: 0x7fcfbc33b8b0>
 ## 
 ## [[2]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8b6b174e08>
+## <environment: 0x7fcfbc33b040>
 ## 
 ## [[3]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8b6b1753b8>
+## <environment: 0x7fcfbc33a040>
 ## 
 ## [[4]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8b6b1740a8>
+## <environment: 0x7fcfbc0a1120>
 ```
 
 Here, `ff` contains four functions and the idea is that the first of these adds 1 to its argument, the second add 2, and so on.
@@ -1056,7 +1056,7 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1] 0.3903192 0.3903192 0.3903192 0.3903192
+## [1] -1.173737 -1.173737 -1.173737 -1.173737
 ```
 
 Lazy evaluation only takes you so far.
@@ -1073,7 +1073,8 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1]  0.1860947  0.2736476  0.2494685 -0.3961833
+## [1] -0.93563854  0.09738761  0.97411390
+## [4] -0.15127302
 ```
 
 Here the `match.call` function just gets us a representation of the current function call from which we can extract the expression without evaluating it. We then use `replicate` to evaluate it a number of times in the calling function's scope.
@@ -1145,7 +1146,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10fbaa000"
+## [1] "0x10fa27000"
 ```
 
 ```r
@@ -1161,7 +1162,7 @@ address(x)
 ```
 
 ```
-## [1] "0x11549a000"
+## [1] "0x11204d000"
 ```
 
 When we assign to the first element in this vector, we see that the entire vector is being copied. This might look odd since I just told you that R would only copy a vector if it had to, and here we are just modifying an element in it, and no other variable refers to it.
@@ -1223,7 +1224,7 @@ address(x)
 ```
 
 ```
-## [1] "0x11549a000"
+## [1] "0x11204d000"
 ```
 
 All expression evaluations modify the memory a little, up or down, but the change is much smaller than the entire vector so we can see that the vector isn't being copied, and the address remains the same.
@@ -1244,7 +1245,7 @@ address(x)
 ```
 
 ```
-## [1] "0x11549a000"
+## [1] "0x11204d000"
 ```
 
 ```r
@@ -1252,7 +1253,7 @@ address(y)
 ```
 
 ```
-## [1] "0x11549a000"
+## [1] "0x11204d000"
 ```
 
 If we change `x` again, though, we need a copy to make the other vector point to the original, unmodified data.
@@ -1271,7 +1272,7 @@ address(x)
 ```
 
 ```
-## [1] "0x11a0e6000"
+## [1] "0x118fe5000"
 ```
 
 ```r
@@ -1279,7 +1280,7 @@ address(y)
 ```
 
 ```
-## [1] "0x11549a000"
+## [1] "0x11204d000"
 ```
 
 But after that copy, we can again assign to `x` without making additional copies.
@@ -1298,7 +1299,7 @@ address(x)
 ```
 
 ```
-## [1] "0x11a0e6000"
+## [1] "0x118fe5000"
 ```
 
 
@@ -2343,8 +2344,6 @@ The function `eval` changes both scope and environment at the same time, but con
 
 ## Environment chains, scope, and function calls
 
-When you call a function in R, you first create an environment for that function. That environment is where its parameters will be stored and any local variables the function assigns to will go there as well. That environment is linked to another environment. If the function is defined inside another function it will be the environment in that function instantiation; if the function is called directly from the outermost level, it will be linked to the global environment. Depending on how the function is defined, there might be many such linked environment, and it is this chain of environments that determines the scope used to find a variable and get its value.
-
 When you call a function in R, you first create an environment for that function. That environment is where its parameters will be stored and any local variables the function assigns to will go there as well. That environment is linked to another environment. If the function is defined inside another function it will be the environment in that function instantiation; if the function is called directly from the outermost level, it will be linked to the global environment. Depending on how the function is defined there might be many such linked environment and it is this chain of environments that determines the scope used to find a variable and get its value.
 
 We need another example to see this in action. 
@@ -2361,7 +2360,7 @@ When I have need for more complex chain graphs I will use a graphical notation a
 
 ![Environment chain graph](figures/environment-chain-graph){#fig:environment-chain-graph}
 
-If we assume that there are no variables in the global environment when we start the program, we have the global environment `[]`. After we evaluate the first expression, the definition of function `f`, we have changed the global environment, so it now maps `"f` to that function.
+If we assume that there are no variables in the global environment when we start the program, we have the global environment `[]`.^[The global environment is actually a little more complex than the empty one we use here. It is nested inside environments where imported packages live. But for the purpose of this chapter, we do not need to worry about that.] After we evaluate the first expression, the definition of function `f`, we have changed the global environment, so it now maps `"f` to that function.
 
 ```
 ["f -> function(x) 2 * x]
@@ -4996,6 +4995,10 @@ Helping you keep programming pure is the immutability of data in R. Whenever you
 We have seen how we can use linked lists (“next lists” in the terminology I have used in this book) and trees with functions that modify the data when computing on it. Lists and trees form the basic constructions for data structures in functional programs, but efficient functional data structures are beyond the scope of this book. I plan to return to it in a later book in the series.
 
 I will end the book here, but I hope it is not the end of your exploration of functional programming in R.
+
+If you liked this book, why not check out my [list of other books](http://wp.me/P9B2l-DN) or 
+[sign up to my mailing list](http://eepurl.com/cwIbR5)?
+
 
 ## Acknowledgements
 

@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://apple.com/itunes/importer/publication" version="publication5.0">
+    <provider>ThomasMailund</provider>
+    <book>
+        <vendor_id>cover</vendor_id>
+        <metadata>
+            <publication_type>book</publication_type>
+            <series_info>
+                <series>
+                    <title>Advanced statistical programming in R</title>
+                    <sequence_number>1</sequence_number>
+                </series>
+            </series_info>
+            <title>Functional programming in R</title>
+            <contributors>
+                <contributor>
+                    <primary>true</primary>
+                    <name>Thomas Mailund</name>
+                    <roles>
+                        <role>author</role>
+                    </roles>
+                </contributor>
+            </contributors>
+            <languages>
+                <language type="main">eng</language>
+            </languages>
+            <number_of_pages>148</number_of_pages>
+            <subjects>
+                <subject primary="true" scheme="bisac">COM051000</subject>
+            </subjects>
+            <description format="html">This book gives an introduction to functions in R and how to write functional programs in R. Functional programming is a style of programming, like object-oriented programming, but one that focuses on data transformations and calculations rather than objects and state.&lt;br&gt;
+&lt;br&gt;
+Where in object-oriented programming you model your programs by describing which states an object can be in and how methods will reveal or modify that state, in functional programming you model programs by describing how functions translate input data to output data. Functions themselves are consider data you can manipulate and much of the strength of functional programming comes from manipulating functions, building more complex functions by combining simpler functions.&lt;br&gt;
+&lt;br&gt;
+The R programming language supports both object-oriented programming and functional programming, but it is mainly a functional language. It is not a pure functional language. Pure functional languages will not generally allow you to modify the state of the program by changing values parameters hold and will not allow functions to have side-effects (and need various tricks to deal with program input and output because of it).&lt;br&gt;
+&lt;br&gt;
+In this book I teach you how to write function programs. How to make your functions pure by avoiding side-effects. How to write functions that manipulate other functions and how to construct complex functions using simpler functions as building blocks.</description>
+            <publisher>Thomas Mailund</publisher>
+            <preorder_previews>true</preorder_previews>
+            <publication_date>2016-11-01</publication_date>
+            <products>
+                <product>
+                    <territory>AR</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>AU</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>4</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="AUD">3.90</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>AT</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>BE</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>BO</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>BR</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>BG</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>CA</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>4</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="CAD">3.93</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>CL</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>CO</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>CR</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>CY</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>CZ</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>DK</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="DKK">19.82</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>DO</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>EC</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>SV</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>EE</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>FI</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>FR</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>DE</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>GR</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>GT</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>HN</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>HU</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>IE</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>IT</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>JP</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>6</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="JPY">302.60</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>LV</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>LT</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>LU</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>MT</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>MX</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>11</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="MXN">57.96</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>NL</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>NZ</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>4</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="NZD">4.11</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>NI</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>NO</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>6</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="NOK">23.93</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>PA</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>PY</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>PE</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>PL</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>PT</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>RO</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>SK</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>SI</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>ES</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="EUR">2.66</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>SE</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>5</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="SEK">25.65</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>CH</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>6</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="CHF">2.91</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>GB</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>4</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="GBP">2.32</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>US</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+                <product>
+                    <territory>VE</territory>
+                    <cleared_for_sale>true</cleared_for_sale>
+                    <price_tier>3</price_tier>
+                    <release_type>new-release</release_type>
+                    <sales_start_date>2016-11-01</sales_start_date>
+                    <physical_list_price currency="USD">3.00</physical_list_price>
+                    <drm_free>true</drm_free>
+                </product>
+            </products>
+            <version_whats_new>Minor typo fixes</version_whats_new>
+        </metadata>
+        <assets>
+            <asset type="artwork">
+                <data_file>
+                    <file_name>cover.png</file_name>
+                    <size>5124955</size>
+                    <checksum type="md5">679b179c3871f1b8eb411b7e60a4dc4b</checksum>
+                </data_file>
+            </asset>
+            <asset type="full">
+                <data_file>
+                    <file_name>book.epub</file_name>
+                    <size>5505379</size>
+                    <checksum type="md5">b792acb6285e0239e9b3357c187ace96</checksum>
+                </data_file>
+            </asset>
+        </assets>
+    </book>
+</package>
