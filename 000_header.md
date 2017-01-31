@@ -16,5 +16,6 @@ assert <- function(expr, expected) {
 
 options(width = 50)
 
-```
+Sys.setenv(LANG = "en")
 
+```

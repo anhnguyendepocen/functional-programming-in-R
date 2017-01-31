@@ -3,12 +3,13 @@ BUILD_DIR := gen
 PANDOC := pandoc
 
 PANDOC_OPTS_ALL :=  -S --toc \
-					--chapters \
+					--top-level-division=chapter \
 					--filter pandoc-fignos
 PANDOC_PDF_OPTS := $(PANDOC_OPTS_ALL) \
 					--default-image-extension=pdf \
 					--variable links-as-notes \
 					--template=templates/latex-template.tex
+PANDOC_PRINT_OPTS := $(PANDOC_PDF_OPTS) --no-highlight
 PANDOC_EPUB_OPTS := $(PANDOC_OPTS_ALL) \
 					--default-image-extension=png \
 					-t epub3 --toc-depth=1 \
@@ -31,6 +32,9 @@ CHAPTERS := 000_header.md \
 
 book.pdf: pdf_book.md templates/latex-template.tex
 	$(PANDOC) $(PANDOC_PDF_OPTS) -o $@ pdf_book.md
+
+print_book.pdf: pdf_book.md templates/latex-template.tex
+		$(PANDOC) $(PANDOC_PRINT_OPTS) -o $@ pdf_book.md
 
 book.epub: ebook.md
 	$(PANDOC) $(PANDOC_EPUB_OPTS) -o $@ ebook.md
@@ -56,4 +60,3 @@ all: book.pdf book.epub book.mobi
 clean:
 	rm book.pdf book.epub book.mobi pdf_book.Rmd ebook.Rmd
 	rm pdf_book.md ebook.md
-
