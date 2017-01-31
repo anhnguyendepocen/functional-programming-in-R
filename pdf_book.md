@@ -6,7 +6,6 @@ author: Thomas Mailund
 
 
 
-
 # Introduction
 
 Welcome to the *Advanced Statistical Programming in R* series and this book, *Functional Programming in R*. I wrote the series, and this book, to have teaching material beyond the typical introductory level most textbooks on R have. It covers more advanced techniques used in R programming such as fully exploiting functional programming, writing meta-programs (programming the actual language structures), and writing domain specific languages to embed in R.
@@ -484,22 +483,22 @@ ff
 ## [[1]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8c3cfe9eb0>
+## <environment: 0x7fd102013ca0>
 ## 
 ## [[2]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8c3cfe9640>
+## <environment: 0x7fd102014708>
 ## 
 ## [[3]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8c3cfe8640>
+## <environment: 0x7fd1020142a8>
 ## 
 ## [[4]]
 ## function (b) 
 ## a + b
-## <environment: 0x7f8c3cfe0f20>
+## <environment: 0x7fd102014df0>
 ```
 
 Here, `ff` contains four functions and the idea is that the first of these adds 1 to its argument, the second add 2, and so on.
@@ -1056,7 +1055,7 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1] -0.3957547 -0.3957547 -0.3957547 -0.3957547
+## [1] -0.660645 -0.660645 -0.660645 -0.660645
 ```
 
 Lazy evaluation only takes you so far.
@@ -1073,7 +1072,7 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1] -0.7455751  2.0318047 -0.3833299 -0.2629873
+## [1] -0.2629177  0.8673261  2.6881143 -0.4355067
 ```
 
 Here the `match.call` function just gets us a representation of the current function call from which we can extract the expression without evaluating it. We then use `replicate` to evaluate it a number of times in the calling function's scope.
@@ -1145,7 +1144,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10b82e000"
+## [1] "0x108a52000"
 ```
 
 ```r
@@ -1161,7 +1160,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10de54000"
+## [1] "0x10dc6e000"
 ```
 
 When we assign to the first element in this vector, we see that the entire vector is being copied. This might look odd since I just told you that R would only copy a vector if it had to, and here we are just modifying an element in it, and no other variable refers to it.
@@ -1223,7 +1222,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10de54000"
+## [1] "0x10dc6e000"
 ```
 
 All expression evaluations modify the memory a little, up or down, but the change is much smaller than the entire vector so we can see that the vector isn't being copied, and the address remains the same.
@@ -1244,7 +1243,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10de54000"
+## [1] "0x10dc6e000"
 ```
 
 ```r
@@ -1252,7 +1251,7 @@ address(y)
 ```
 
 ```
-## [1] "0x10de54000"
+## [1] "0x10dc6e000"
 ```
 
 If we change `x` again, though, we need a copy to make the other vector point to the original, unmodified data.
@@ -1271,7 +1270,7 @@ address(x)
 ```
 
 ```
-## [1] "0x112aa0000"
+## [1] "0x1128ba000"
 ```
 
 ```r
@@ -1279,7 +1278,7 @@ address(y)
 ```
 
 ```
-## [1] "0x10de54000"
+## [1] "0x10dc6e000"
 ```
 
 But after that copy, we can again assign to `x` without making additional copies.
@@ -1298,7 +1297,7 @@ address(x)
 ```
 
 ```
-## [1] "0x112aa0000"
+## [1] "0x1128ba000"
 ```
 
 
