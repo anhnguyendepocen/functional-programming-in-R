@@ -288,7 +288,8 @@ my_sum_acc <- function(lst, acc = 0) {
 }
 my_sum_cont <- function(lst, cont = identity) {
   if (is_empty(lst)) cont(0)
-  else my_sum_cont(rest(lst), function(acc) cont(first(lst) + acc))
+  else my_sum_cont(rest(lst), 
+                   function(acc) cont(first(lst) + acc))
 }
 ```
 

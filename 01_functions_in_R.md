@@ -104,7 +104,7 @@ rescale(o = TRUE, 1:4)
 
 This is convenient for interactive work with R because it saves some typing, but I do not recommend it when you are writing programs. It can easily get confusing and if the author of the function adds a new argument to the function with the same prefix as the one you use it will break your code. If the function author provides a default value for that parameter, your code will *not* break, if you use the full argument name.
 
-Now default parameters are provided when the function is defined. We could have written the `rescale` function with a default parameter for `only_translate` like this:
+Now default parameters are provided when the function is defined. We could have given `rescale` a default parameter for `only_translate` like this:
 
 ```{r}
 rescale <- function(x, only_translate = FALSE) {

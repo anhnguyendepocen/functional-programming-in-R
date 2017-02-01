@@ -148,7 +148,7 @@ rmse <- . %>% { (.$x - .$y)**2 } %>% mean %>% sqrt
 data.frame(x = 1:4, y = 2:5) %>% rmse
 ```
 
-Here we also used another feature of `magrittr`, a less verbose syntax for writing anonymous functions. By writing the expression { (.$x - .$y)**2 } in curly braces we are making a function, in which we can refer to the argument as "`.`".
+Here we also used another feature of `magrittr`, a less verbose syntax for writing anonymous functions. By writing the expression `{(.$x - .$y)**2}` in curly braces we are making a function, in which we can refer to the argument as "`.`".
 
 Being able to write anonymous functions by just putting expressions in braces is very convenient when the data needs to be massaged just a little to fit the output of one function to the expected input of the next.
 

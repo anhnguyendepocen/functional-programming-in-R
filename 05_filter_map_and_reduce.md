@@ -193,7 +193,7 @@ We can see it in action using `` `+` `` as the function:
 Reduce(`+`, 1:5)
  ```
 
-You can also get the accumulative results back by using the parameter `accumulate`. This will return a list of all the calls to `f` and include the first value in the list, so `Reduce(f, 1:5)` will return the list
+You can also get the step-wise results back by using the parameter `accumulate`. This will return a list of all the calls to `f` and include the first value in the list, so `Reduce(f, 1:5)` will return the list
 
 ```r
 c(1, f(1, 2), f(f(1 ,2), 3), f(f(f(1, 2), 3), 4), 
@@ -285,8 +285,9 @@ In this section, we will see a few examples of how we can use these functions to
 A <- make_node("A")
 C <- make_node("C", make_node("A"), 
                     make_node("B"))
-E <- make_node("E", make_node("C", make_node("A"), make_node("B")),
-                    make_node("D"))
+E <- make_node("E", 
+               make_node("C", make_node("A"), make_node("B")),
+               make_node("D"))
 
 trees <- list(A = A, C = C, E = E)
 ```
@@ -310,7 +311,7 @@ We can combine this with `Filter` to only get the trees that are not single leav
 
 ```{r}
 unlist(Map(print_tree, 
-                   Filter(function(tree) size_of_tree(tree) > 1, trees)))
+           Filter(function(tree) size_of_tree(tree) > 1, trees)))
 ```
 
 or we can get the size of all trees and compute their sum by combining `Map` with `Reduce`

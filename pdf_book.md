@@ -165,7 +165,7 @@ rescale(o = TRUE, 1:4)
 
 This is convenient for interactive work with R because it saves some typing, but I do not recommend it when you are writing programs. It can easily get confusing and if the author of the function adds a new argument to the function with the same prefix as the one you use it will break your code. If the function author provides a default value for that parameter, your code will *not* break, if you use the full argument name.
 
-Now default parameters are provided when the function is defined. We could have written the `rescale` function with a default parameter for `only_translate` like this:
+Now default parameters are provided when the function is defined. We could have given `rescale` a default parameter for `only_translate` like this:
 
 
 ```r
@@ -483,22 +483,22 @@ ff
 ## [[1]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fd102013ca0>
+## <environment: 0x7fca5358ca70>
 ## 
 ## [[2]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fd102014708>
+## <environment: 0x7fca5358c200>
 ## 
 ## [[3]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fd1020142a8>
+## <environment: 0x7fca5358c660>
 ## 
 ## [[4]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fd102014df0>
+## <environment: 0x7fca5358bb88>
 ```
 
 Here, `ff` contains four functions and the idea is that the first of these adds 1 to its argument, the second add 2, and so on.
@@ -1055,7 +1055,7 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1] -0.660645 -0.660645 -0.660645 -0.660645
+## [1] 1.13358 1.13358 1.13358 1.13358
 ```
 
 Lazy evaluation only takes you so far.
@@ -1072,7 +1072,8 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1] -0.2629177  0.8673261  2.6881143 -0.4355067
+## [1]  0.07215175 -1.01280296 -0.96894262
+## [4]  1.73404764
 ```
 
 Here the `match.call` function just gets us a representation of the current function call from which we can extract the expression without evaluating it. We then use `replicate` to evaluate it a number of times in the calling function's scope.
@@ -1144,7 +1145,7 @@ address(x)
 ```
 
 ```
-## [1] "0x108a52000"
+## [1] "0x1060ec000"
 ```
 
 ```r
@@ -1160,7 +1161,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10dc6e000"
+## [1] "0x108712000"
 ```
 
 When we assign to the first element in this vector, we see that the entire vector is being copied. This might look odd since I just told you that R would only copy a vector if it had to, and here we are just modifying an element in it, and no other variable refers to it.
@@ -1222,7 +1223,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10dc6e000"
+## [1] "0x108712000"
 ```
 
 All expression evaluations modify the memory a little, up or down, but the change is much smaller than the entire vector so we can see that the vector isn't being copied, and the address remains the same.
@@ -1243,7 +1244,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10dc6e000"
+## [1] "0x108712000"
 ```
 
 ```r
@@ -1251,7 +1252,7 @@ address(y)
 ```
 
 ```
-## [1] "0x10dc6e000"
+## [1] "0x108712000"
 ```
 
 If we change `x` again, though, we need a copy to make the other vector point to the original, unmodified data.
@@ -1270,7 +1271,7 @@ address(x)
 ```
 
 ```
-## [1] "0x1128ba000"
+## [1] "0x10e9de000"
 ```
 
 ```r
@@ -1278,7 +1279,7 @@ address(y)
 ```
 
 ```
-## [1] "0x10dc6e000"
+## [1] "0x108712000"
 ```
 
 But after that copy, we can again assign to `x` without making additional copies.
@@ -1297,7 +1298,7 @@ address(x)
 ```
 
 ```
-## [1] "0x1128ba000"
+## [1] "0x10e9de000"
 ```
 
 
@@ -1991,7 +1992,7 @@ df$table
 ##    1    2    3    4    5
 ```
 
-We can now exploit this depth-first-numbering to write a version of `node_depth` that only searches in the sub-tree where a node is actually found. We use a helper function for checking if a depth-first-number is in a node's range:
+We can now use this depth-first-numbering to write a version of `node_depth` that only searches in the sub-tree where a node is actually found. We use a helper function for checking if a depth-first-number is in a node's range:
 
 
 ```r
@@ -2920,7 +2921,7 @@ You might not be surprised that `eval` manages to do this, after all, it is what
 
 This is because R supports dynamic scope as well as lexical scope. Remember, dynamic scope is where we find variables based on which functions are on the call-stack, not which functions are lexically enclosing the place where we define them.
 
-The `eval` function manages to get the calling scope using the function `parent.frame`. Using this function, you can get to the environment of functions on the call stack.
+The `eval` function manages to get the calling scope, instead of the enclosing scope, using the function `parent.frame`. Using this function, you can get to the environment of functions on the call stack.
 
 These call-stack environments are not chained. They behave just as I have described earlier. So you cannot do this
 
@@ -3356,7 +3357,8 @@ my_sum_acc <- function(lst, acc = 0) {
 }
 my_sum_cont <- function(lst, cont = identity) {
   if (is_empty(lst)) cont(0)
-  else my_sum_cont(rest(lst), function(acc) cont(first(lst) + acc))
+  else my_sum_cont(rest(lst), 
+                   function(acc) cont(first(lst) + acc))
 }
 ```
 
@@ -4030,7 +4032,7 @@ Reduce(`+`, 1:5)
 ## [1] 15
 ```
 
-You can also get the accumulative results back by using the parameter `accumulate`. This will return a list of all the calls to `f` and include the first value in the list, so `Reduce(f, 1:5)` will return the list
+You can also get the step-wise results back by using the parameter `accumulate`. This will return a list of all the calls to `f` and include the first value in the list, so `Reduce(f, 1:5)` will return the list
 
 ```r
 c(1, f(1, 2), f(f(1 ,2), 3), f(f(f(1, 2), 3), 4), 
@@ -4145,8 +4147,9 @@ In this section, we will see a few examples of how we can use these functions to
 A <- make_node("A")
 C <- make_node("C", make_node("A"), 
                     make_node("B"))
-E <- make_node("E", make_node("C", make_node("A"), make_node("B")),
-                    make_node("D"))
+E <- make_node("E", 
+               make_node("C", make_node("A"), make_node("B")),
+               make_node("D"))
 
 trees <- list(A = A, C = C, E = E)
 ```
@@ -4233,7 +4236,7 @@ We can combine this with `Filter` to only get the trees that are not single leav
 
 ```r
 unlist(Map(print_tree, 
-                   Filter(function(tree) size_of_tree(tree) > 1, trees)))
+           Filter(function(tree) size_of_tree(tree) > 1, trees)))
 ```
 
 ```
@@ -4960,7 +4963,7 @@ data.frame(x = 1:4, y = 2:5) %>% rmse
 ## [1] 1
 ```
 
-Here we also used another feature of `magrittr`, a less verbose syntax for writing anonymous functions. By writing the expression { (.$x - .$y)**2 } in curly braces we are making a function, in which we can refer to the argument as "`.`".
+Here we also used another feature of `magrittr`, a less verbose syntax for writing anonymous functions. By writing the expression `{(.$x - .$y)**2}` in curly braces we are making a function, in which we can refer to the argument as "`.`".
 
 Being able to write anonymous functions by just putting expressions in braces is very convenient when the data needs to be massaged just a little to fit the output of one function to the expected input of the next.
 

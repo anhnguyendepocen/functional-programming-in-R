@@ -603,7 +603,7 @@ You might not be surprised that `eval` manages to do this, after all, it is what
 
 This is because R supports dynamic scope as well as lexical scope. Remember, dynamic scope is where we find variables based on which functions are on the call-stack, not which functions are lexically enclosing the place where we define them.
 
-The `eval` function manages to get the calling scope using the function `parent.frame`. Using this function, you can get to the environment of functions on the call stack.
+The `eval` function manages to get the calling scope, instead of the enclosing scope, using the function `parent.frame`. Using this function, you can get to the environment of functions on the call stack.
 
 These call-stack environments are not chained. They behave just as I have described earlier. So you cannot do this
 

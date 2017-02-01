@@ -423,7 +423,7 @@ df$node$range
 df$table
 ```
 
-We can now exploit this depth-first-numbering to write a version of `node_depth` that only searches in the sub-tree where a node is actually found. We use a helper function for checking if a depth-first-number is in a node's range:
+We can now use this depth-first-numbering to write a version of `node_depth` that only searches in the sub-tree where a node is actually found. We use a helper function for checking if a depth-first-number is in a node's range:
 
 ```{r}
 in_df_range <- function(i, df_range) 

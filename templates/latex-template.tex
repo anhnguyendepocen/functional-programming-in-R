@@ -17,6 +17,8 @@ $endif$
 \usepackage{fixltx2e}
 \usepackage{textcomp}
 
+\usepackage{etoolbox}
+\patchcmd{\quote}{\rightmargin}{\leftmargin 1em \rightmargin}{}{}
 
 \usepackage{titlesec}
 \titleformat{name=\chapter}[display]
@@ -85,7 +87,7 @@ $if(series)$ {\Large $series$}\\[50pt]$endif$ % Subtitle
 \newpage
 ~\vfill
 \thispagestyle{empty}
-\noindent Copyright \copyright\ 2016 Thomas Mailund\\ % Copyright notice
+\noindent Copyright \copyright\ 2017 Thomas Mailund\\ % Copyright notice
 %\noindent \textit{First printing, March 2013} % Printing/edition date
 \clearpage
 
