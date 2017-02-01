@@ -15,7 +15,7 @@ If you have used R before for data analysis and are familiar with writing expres
 
 This book is intended to give an introduction to functions in R, and how to write functional programs in R. Functional programming is a style of programming, like object-oriented programming, but one that focuses on data transformations and calculations rather than objects and state.
 
-Where in object-oriented programming you model your programs by describing which states an object can be in and how methods will reveal or modify that state -- in functional programming you model programs by describing how functions translate input data to output data. Functions themselves are considered data that you can manipulate, and much of the strength of functional programming comes from manipulating functions, building more complex functions by combining simpler functions.
+Where in object-oriented programming you model your programs by describing which states an object can be in and how methods will reveal or modify that state---in functional programming you model programs by describing how functions translate input data to output data. Functions themselves are considered data that you can manipulate, and much of the strength of functional programming comes from manipulating functions, building more complex functions by combining simpler functions.
 
 The R programming language supports both object-oriented programming and functional programming, but it is mainly a functional language. It is not a "pure" functional language. Pure functional languages will not allow you to modify the state of the program by changing values parameters hold and will not allow functions to have side-effects (and need various tricks to deal with program input and output because of it).
 
