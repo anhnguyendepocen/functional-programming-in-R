@@ -4,11 +4,11 @@ This is the source text to my book [Functional programming in R](https://leanpub
 
 I'm currently proofreading the book before putting it as a paperback on Amazon. Feel free to help out!
 
-[x] Introduction
-[ ] Functions in R
-[ ] Pure functional programming
-[ ] Scope and closures
-[ ] Higher order functions
-[ ] Filter, Map, and Reduce
-[ ] Point-free programming
-[ ] Conclusions
+- [x] Introduction
+- [ ] Functions in R
+- [ ] Pure functional programming
+- [ ] Scope and closures
+- [ ] Higher order functions
+- [ ] Filter, Map, and Reduce
+- [ ] Point-free programming
+- [ ] Conclusions
