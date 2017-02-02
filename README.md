@@ -10,5 +10,5 @@ I'm currently proofreading the book before putting it as a paperback on Amazon. 
 - [x] Scope and closures
 - [x] Higher order functions
 - [x] Filter, Map, and Reduce
-- [ ] Point-free programming
+- [x] Point-free programming
 - [ ] Conclusions
