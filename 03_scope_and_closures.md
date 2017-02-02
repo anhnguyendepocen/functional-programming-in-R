@@ -131,7 +131,7 @@ The next expression assigns a value to the variable `x` so after that the global
 ["f -> function(x) 2 * x, "x -> 4]
 ```
 
-In the third expression, we call function `f` and a lot is going on here. First R needs to figure out what the variable name `"f` is referring to. It searches in the chain of environments -- in this case a chain of only one environment -- and finds it in the global environment. So at this point, the scope of the variable `f` is the global environment. It can get the value from that environment, and it gets the function `function(x) 2 * x`.
+In the third expression, we call function `f` and a lot is going on here. First R needs to figure out what the variable name `"f` is referring to. It searches in the chain of environments---in this case a chain of only one environment---and finds it in the global environment. So at this point, the scope of the variable `f` is the global environment. It can get the value from that environment, and it gets the function `function(x) 2 * x`.
 
 When we call the function R creates a new environment to execute the function instance in. This environment is first empty, but it is linked to the global scope.
 
@@ -294,7 +294,7 @@ So to briefly summarise how scopes and environments work in R: whenever you eval
 
 The rules for how variables are mapped to values are always the same. It involves a search in the chain of environments that are active at the time the expression is evaluated. The only difficulty is knowing which environments are in the chain at any given time.
 
-Here the rules are not that complex either. We can explicitly create an environment and put it at the top of the chain of environments using the `eval` function, we can create a "call" environment when we pass expressions as arguments to a function -- where the environment will be the same environment chain as where we call the function -- or we can create a new environment by running code inside a function.
+Here the rules are not that complex either. We can explicitly create an environment and put it at the top of the chain of environments using the `eval` function, we can create a "call" environment when we pass expressions as arguments to a function---where the environment will be the same environment chain as where we call the function---or we can create a new environment by running code inside a function.
 
 
 ## Scopes, lazy-evaluation, and default parameters

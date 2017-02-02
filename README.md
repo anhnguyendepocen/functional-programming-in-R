@@ -7,7 +7,7 @@ I'm currently proofreading the book before putting it as a paperback on Amazon. 
 - [x] Introduction
 - [x] Functions in R
 - [x] Pure functional programming
-- [ ] Scope and closures
+- [x] Scope and closures
 - [ ] Higher order functions
 - [ ] Filter, Map, and Reduce
 - [ ] Point-free programming
