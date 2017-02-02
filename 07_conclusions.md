@@ -5,7 +5,7 @@ This concludes this book on functional programming in R. You now know all the ba
 
 Getting used to writing functional programs might take a little effort if you are only used to imperative or object-oriented programming, but the combination of higher-order functions and closures is a very powerful paradigm for effective programming and writing pure functions whenever possible makes for code that is much simpler to reason about.
 
-R is not a pure functional programming language, though, so your code will usually mix imperative programming — which in most cases means using loops instead of recursions, both for convenience and efficiency reasons — with functional patterns. With careful programming, you can still keep the changing states of a program to a minimum and keep most of your program pure.
+R is not a pure functional programming language, though, so your code will usually mix imperative programming---which in most cases means using loops instead of recursions, both for convenience and efficiency reasons---with functional patterns. With careful programming, you can still keep the changing states of a program to a minimum and keep most of your program pure.
 
 Helping you keep programming pure is the immutability of data in R. Whenever you “modify” data, you will implicitly create a copy of the data and then modify the copy. For reasoning about your programs, that is good news. It is very hard to create side effects of functions. It does come with some drawbacks, however. Many classical data structures assume that you can modify data. Since you cannot do this in R, you will instead have to construct your data structures such that updating them means creating new, modified, data structures.
 
