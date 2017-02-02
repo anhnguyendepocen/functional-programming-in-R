@@ -201,7 +201,7 @@ binary_search <- function(element, x,
 
 This is because you get a `middle` index that equals `first`, so you call recursively on the same problem you were trying to solve, not a simpler one.
 
-You can solve it by never including `middle` in the range you try to solve recursively -- after all, you only call the recursion if you know that `middle` is not the element you are searching for.
+You can solve it by never including `middle` in the range you try to solve recursively---after all, you only call the recursion if you know that `middle` is not the element you are searching for.
 
 ```{r}
 binary_search <- function(element, x, 
@@ -231,7 +231,7 @@ assert(binary_search(6, 1:5) == FALSE)
 
 It is crucial that you make sure that all recursive calls actually are working on a smaller problem. For sequences, that typically means making sure that you call recursively on shorter sequences.
 
-For trees, a data structure that is fundamentally recursive -- a tree is either a leaf or an inner node containing a number of children that are themselves also trees -- we call recursively on sub-trees, thus making sure that we are looking at smaller problems in each recursive call.
+For trees, a data structure that is fundamentally recursive---a tree is either a leaf or an inner node containing a number of children that are themselves also trees---we call recursively on sub-trees, thus making sure that we are looking at smaller problems in each recursive call.
 
 The `node_depth` function we wrote in the first chapter is an example of this.
 
@@ -247,11 +247,11 @@ node_depth <- function(tree, name, depth = 0) {
 }
 ```
 
-The base cases deal with an empty tree -- an empty tree doesn't contain the node we are looking for, so we trivially return `NA`. If the tree isn't empty, we either have found the node we are looking for, in which case we can return the result. If not, we call recursively on the left tree. We return the result if we found the node we were looking for. Otherwise, we return the result of a recursive call on the right tree (whether we found it or not, if the node wasn't in the tree at all the final result will be `NA`).
+The base cases deal with an empty tree---an empty tree doesn't contain the node we are looking for, so we trivially return `NA`. If the tree isn't empty, we either have found the node we are looking for, in which case we can return the result. If not, we call recursively on the left tree. We return the result if we found the node we were looking for. Otherwise, we return the result of a recursive call on the right tree (whether we found it or not, if the node wasn't in the tree at all the final result will be `NA`).
 
 The functions we have written so far do not combine the results of the sub-problems we solve recursively. The functions are all search functions, and the result they return is either directly found or the result one of the recursive functions return. It is not always that simple, and often you need to do something with the result from the recursive call(s) to solve the larger problem.
 
-A simple example is computing the factorial. The factorial of a number $n$, $n!$ is equal to $n\\times (n-1)!$ with a basis case $1!=1$. It is very simple to write a recursive function to return the factorial, but we cannot just return the result of a recursive call. We need to multiply the result we get from the recursive call with $n$.
+A simple example is computing the factorial. The factorial of a number $n$, $n!$, is equal to $n\\times (n-1)!$ with a basis case $1!=1$. It is very simple to write a recursive function to return the factorial, but we cannot just return the result of a recursive call. We need to multiply the result we get from the recursive call with $n$.
 
 ```{r}
 factorial <- function(n) {
@@ -598,7 +598,7 @@ l_binary_search <- function(element, x,
 }
 ```
 
-The translation always follows this simple pattern, which is why many programming languages will do it for you automatically. We don't get as massive a performance boost by changing this algorithm into a looping version, simply because there aren't that many function calls in a binary search -- the power of logarithmic runtime algorithms -- but we do get a slightly more efficient version. We can again compare the two using `microbenchmark` to measure exactly how much improvement we get:
+The translation always follows this simple pattern, which is why many programming languages will do it for you automatically. We don't get as massive a performance boost by changing this algorithm into a looping version, simply because there aren't that many function calls in a binary search---the power of logarithmic runtime algorithms---but we do get a slightly more efficient version. We can again compare the two using `microbenchmark` to measure exactly how much improvement we get:
 
 ```{r bin_search_benchmark, cache=TRUE}
 x <- 1:10000000
@@ -606,5 +606,5 @@ microbenchmark(r_binary_search(-1, x),
                l_binary_search(-1, x))
 ```
 
-If your function is *not* tail-recursive it is a lot more work to translate it into a version that uses loops. You will essentially have to simulate the function call stack yourself. That involves a lot more programming, but it is not functional programming and thus is beyond the scope of this book. Not to worry, though, using continuations, a topic we cover later in the book, you can generally translate your functions into tail-recursive functions and then use a trick called a "trampoline" to replace recursion with looks.
+If your function is *not* tail-recursive it is a lot more work to translate it into a version that uses loops. You will essentially have to simulate the function call stack yourself. That involves a lot more programming, but it is not functional programming and thus is beyond the scope of this book. Not to worry, though, using continuations, a topic we cover later in the book, you can generally translate your functions into tail-recursive functions and then use a trick called a "trampoline" to replace recursion with loops.
 

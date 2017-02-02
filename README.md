@@ -6,7 +6,7 @@ I'm currently proofreading the book before putting it as a paperback on Amazon. 
 
 - [x] Introduction
 - [x] Functions in R
-- [ ] Pure functional programming
+- [x] Pure functional programming
 - [ ] Scope and closures
 - [ ] Higher order functions
 - [ ] Filter, Map, and Reduce
