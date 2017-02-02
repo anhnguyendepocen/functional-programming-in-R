@@ -9,6 +9,6 @@ I'm currently proofreading the book before putting it as a paperback on Amazon. 
 - [x] Pure functional programming
 - [x] Scope and closures
 - [x] Higher order functions
-- [ ] Filter, Map, and Reduce
+- [x] Filter, Map, and Reduce
 - [ ] Point-free programming
 - [ ] Conclusions
