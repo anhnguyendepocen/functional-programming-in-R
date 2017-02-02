@@ -188,9 +188,9 @@ We just return if `f` only takes a single argument. Then it is already as currie
   arguments <- vector("list", length = n)
 ```
 
-We need to collect the arguments that are passed to the individual functions we create. We cannot simply use parameter arguments `x` and `y` as we did in `curry2` because we do not know how many arguments we would need before we have examined the input function, `f`. In any case, we would need to create names dynamically to make sure they don't clash. Just saving the arguments in a list is simpler, and since it is a list, we can put any kind of values that are passed as arguments in it.
+- We need to collect the arguments that are passed to the individual functions we create. We cannot simply use parameter arguments `x` and `y` as we did in `curry2` because we do not know how many arguments we would need before we have examined the input function, `f`. In any case, we would need to create names dynamically to make sure they don't clash. Just saving the arguments in a list is simpler, and since it is a list, we can put any kind of values that are passed as arguments in it.
 
-Now we need to create the actual function we should return. We do this in steps. The final function we create should call `f` with all the arguments. It takes the last argument as input, so we need to store that in `arguments` -- and since this means modifying a list outside of the scope of the actual function, we need the ``\<\<-`` assignment operator for that. To call `f` with a list of its arguments we need to use the function `do.call`. It lets us specify the arguments to the function in a list instead of giving them directly as comma-separated arguments.
+Now we need to create the actual function we should return. We do this in steps. The final function we create should call `f` with all the arguments. It takes the last argument as input, so we need to store that in `arguments`---and since this means modifying a list outside of the scope of the actual function, we need the ``\<\<-`` assignment operator for that. To call `f` with a list of its arguments we need to use the function `do.call`. It lets us specify the arguments to the function in a list instead of giving them directly as comma-separated arguments.
 
 ```r
   last <- function(x) {
@@ -236,7 +236,7 @@ It is not *quite* the same semantics as calling `f` directly; we are evaluating 
 
 It is *much* harder to make a transformation in the other direction automatically. If we get a function, we cannot see how many times we would need to call it to get a value, if that is even independent of the parameters we give it, so there is no way to figure out how many parameters we should get for the uncurried version of a curried function.
 
-The `curry` function isn't completely general. We cannot deal with default arguments -- all arguments must be provided in the curried version -- and we cannot create a function where some arguments are fixed, and others are not. The curried version always needs to take the arguments in the exact order the original function takes them.
+The `curry` function isn't completely general. We cannot deal with default arguments---all arguments must be provided in the curried version---and we cannot create a function where some arguments are fixed, and others are not. The curried version always needs to take the arguments in the exact order the original function takes them.
 
 
 ## A parameter binding function
@@ -267,7 +267,7 @@ We get the parameters from the first function call and saves them in a list, and
 
 All the building blocks we have seen before, we are just combining them to translate one function into another.
 
-Using `list` here to remember the parameters from `...` means that we are evaluating the parameters. We are explicitly turning off lazy-evaluation in this function. It is possible to keep the lazy evaluation semantics as well, but it requires more work. We would need to use the `eval(substitute(alist(...)))` trick to get the unevaluated parameters into a list -- we saw this trick in the first chapter -- but that would give us raw expressions in the lists, and we would need to be careful to evaluate these in the right environment chain to make it work. I leave this as an exercise to the reader, or you can look at the `partial` function from the `pryr` package to see how it is done.
+Using `list` here to remember the parameters from `...` means that we are evaluating the parameters. We are explicitly turning off lazy-evaluation in this function. It is possible to keep the lazy evaluation semantics as well, but it requires more work. We would need to use the `eval(substitute(alist(...)))` trick to get the unevaluated parameters into a list---we saw this trick in the first chapter---but that would give us raw expressions in the lists, and we would need to be careful to evaluate these in the right environment chain to make it work. I leave this as an exercise to the reader, or you can look at the `partial` function from the `pryr` package to see how it is done.
 
 Such partial binding functions aren't used that often in R. It is just as easy to write closures to bind parameters and those are usually easier to read, so use partial bindings with caution. 
 
@@ -295,9 +295,9 @@ my_sum_cont <- function(lst, cont = identity) {
 
 The first function handles the computation in an obvious way by adding the current element to the result of the recursive call. The second function uses an accumulator to make a tail-recursive version, where the accumulator carries a partial sum along with the recursion. The third version also gives us a tail-recursive function but in this case via a continuation function. This function works as the accumulator in the second function, it just wraps the computation inside a function that is passed along in the recursive call.
 
-Here, the continuation captures the partial sum moving down the recursion — the same job as the accumulator has in the second function — but expressed as an as-yet not evaluated function. This function will eventually be called by the sum of values for the rest of the recursion, so the job at this place in the recursion is simply to take the value it will eventually be provided, add the current value, and then call the continuation it was passed earlier to complete the computation.
+Here, the continuation captures the partial sum moving down the recursion---the same job as the accumulator has in the second function---but expressed as an as-yet not evaluated function. This function will eventually be called by the sum of values for the rest of the recursion, so the job at this place in the recursion is simply to take the value it will eventually be provided, add the current value, and then call the continuation it was passed earlier to complete the computation.
 
-For something as simple as a adding the numbers in a list, continuation passing is of course overkill. If you need tail-recursion, the accumulator version is simpler and faster, and in any case, you are just replacing recursion going down the vector with function calls in the continuation moving up again (but see later for a solution to this problem). Still, seeing the three approaches to recursion — direct, accumulator and continuation-passing — in a trivial example makes it easier to see how they work and how they differ.
+For something as simple as a adding the numbers in a list, continuation passing is of course overkill. If you need tail-recursion, the accumulator version is simpler and faster, and in any case, you are just replacing recursion going down the vector with function calls in the continuation moving up again (but see later for a solution to this problem). Still, seeing the three approaches to recursion---direct, accumulator and continuation-passing---in a trivial example makes it easier to see how they work and how they differ.
 
 A common use of continuations is to translate non-tail-recursive functions into tail-recursive. As an example, we return to the function from *[Pure Functional Programming]* that we used to compute the size of a tree. In that solution we needed to handle internal nodes by first calling recursively on the left subtree and then the right subtree, to get the sizes of these, and then combine them and adding one for the internal node. Because we needed the results from two recursive calls, we couldn't directly make the function tail-recursive. Using continuations we can.
 
@@ -389,7 +389,7 @@ make_thunk <- function(f, ...) {
 }
 ```
 
-We force the function parameter, `f`, just in case -- we don't want it to change if it refers to an expression that might change after we have defined the thunk. Then we remember the parameters to the function -- this evaluates the parameters, so no lazy evaluation here (it is much harder to keep track of the thunk if we need to keep the evaluation lazy), and then we return a function with no arguments that simply evaluates `f` on the remembered parameters.
+We force the function parameter, `f`, just in case---we don't want it to change if it refers to an expression that might change after we have defined the thunk. Then we remember the parameters to the function---this evaluates the parameters, so no lazy evaluation here (it is much harder to keep track of the thunk if we need to keep the evaluation lazy), and then we return a function with no arguments that simply evaluates `f` on the remembered parameters.
 
 Now we can turn any function into a thunk:
 
@@ -503,7 +503,7 @@ factorial <- make_trampoline(thunk_factorial)
 factorial(100)
 ```
 
-For computing the size of a tree we just do exactly the same thing. It doesn't matter that the continuation we use here does something more complex -- it calls the depth-first traversal on the right subtree instead of just computing an expression directly -- because it is just a continuation and we just need to wrap it up as a thunk:
+For computing the size of a tree we just do exactly the same thing. It doesn't matter that the continuation we use here does something more complex---it calls the depth-first traversal on the right subtree instead of just computing an expression directly---because it is just a continuation and we just need to wrap it up as a thunk:
 
 ```{r}
 thunk_size <- function(node, continuation = identity) {
