@@ -325,7 +325,7 @@ ff[[1]](1)
 When we get the element `ff[[1]]` we get the first function we created in the loop. If we substitute into `f` the value we gave in the call, this is 
 
 ```r
-function(b) i + b`
+function(b) i + b
 ```
 
 The parameter `a` from `f` has been set to the parameter we gave it, `i`, but `i` has not been evaluated at this point!
@@ -464,7 +464,7 @@ eval(p$x, list(y = 4))
 rm(y)
 ```
 
-Actually, manipulating expressions and the scope they are evaluated in is a very powerful tool, but beyond what we will cover in this book. It is the topic for later books in the series, on so-called meta-programming.
+Actually, manipulating expressions and the scope they are evaluated in is a very powerful tool, but beyond what we will cover in this book. It is the topic for a later book in the series: *Meta-programming in R*.
 
 ## Vectorised functions
 
@@ -582,7 +582,7 @@ scale_with(1:6, 1:3)
 
 Simple functions are usually already vectorised, or can easily be made vectorised using `ifelse`, but for functions more complex the `Vectorize` function is needed.
 
-As an example we can consider a tree data structure and a function for computing the node depth of a named node -- the node depth defined as the distance from the root. For simplicity we consider only binary trees. We can implement trees using lists:
+As an example we can consider a tree data structure and a function for computing the node depth of a named node---the node depth defined as the distance from the root. For simplicity we consider only binary trees. We can implement trees using lists:
 
 ```{r}
 make_node <- function(name, left = NULL, right = NULL) 
@@ -677,7 +677,7 @@ Here we used quotes twice, first to get a variable name we could assign to for `
 
 Just because all control structures and operators in R are functions that you can overwrite, you shouldn't go doing that without extreme caution. You should *never* change the functions the control structures point to, and you should not change the other operators unless you are defining operators on new types where it is relatively safe to do so (and I will tell you how to in the *Object Oriented Programming in R* in this series). Defining entirely new infix operators, however, can be quite useful if they simplify expressions you write often.
 
-As an example let us do something else with the `%x%` operator -- after all, there is no point in having two different operators for multiplication. We can make it replicate the left-hand side a number of times given by the right-hand side:
+As an example let us do something else with the `%x%` operator---after all, there is no point in having two different operators for multiplication. We can make it replicate the left-hand side a number of times given by the right-hand side:
 
 ```{r}
 `%x%` <- function(expr, num) replicate(num, expr)
@@ -825,7 +825,7 @@ x <- `names<-`(x, letters[1:4])
 
 No values are harmed in the evaluation of this, but the variable is set to the new value.
 
-We can write our own replacement functions using this syntax. There are just two requirements. The function name has to end with `<-` -- so we need to quote the name when we assign to it -- and the argument for the value that goes to the right-hand side of the assignment has to be named `value`. The last requirement is there so replacement functions can take more than two arguments.
+We can write our own replacement functions using this syntax. There are just two requirements. The function name has to end with `<-` ---so we need to quote the name when we assign to it---and the argument for the value that goes to the right-hand side of the assignment has to be named `value`. The last requirement is there so replacement functions can take more than two arguments.
 
 The `` `attr<-` `` function is an example of this. Attributes are key-value maps that can be associated with objects. You can get the attributes associated with an object using the `attributes` function and set all attributes with the `` `attributes<-` `` function, but you can assign individual attributes using `` `attr<-` ``. It takes three arguments, the object to modify, a `which` parameter that is the name of the attribute to set, and the `value` argument that goes to the right-hand side of the assignment. The `which` argument is passed to the function on the left-hand side together with the object to modify.
 
