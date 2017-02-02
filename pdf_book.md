@@ -22,7 +22,7 @@ If you have used R before for data analysis and are familiar with writing expres
 
 This book is intended to give an introduction to functions in R, and how to write functional programs in R. Functional programming is a style of programming, like object-oriented programming, but one that focuses on data transformations and calculations rather than objects and state.
 
-Where in object-oriented programming you model your programs by describing which states an object can be in and how methods will reveal or modify that state -- in functional programming you model programs by describing how functions translate input data to output data. Functions themselves are considered data that you can manipulate, and much of the strength of functional programming comes from manipulating functions, building more complex functions by combining simpler functions.
+Where in object-oriented programming you model your programs by describing which states an object can be in and how methods will reveal or modify that state---in functional programming you model programs by describing how functions translate input data to output data. Functions themselves are considered data that you can manipulate, and much of the strength of functional programming comes from manipulating functions, building more complex functions by combining simpler functions.
 
 The R programming language supports both object-oriented programming and functional programming, but it is mainly a functional language. It is not a "pure" functional language. Pure functional languages will not allow you to modify the state of the program by changing values parameters hold and will not allow functions to have side-effects (and need various tricks to deal with program input and output because of it).
 
@@ -483,22 +483,22 @@ ff
 ## [[1]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fca5358ca70>
+## <environment: 0x7fb0afa49870>
 ## 
 ## [[2]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fca5358c200>
+## <environment: 0x7fb0afa4a800>
 ## 
 ## [[3]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fca5358c660>
+## <environment: 0x7fb0afa4ac60>
 ## 
 ## [[4]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fca5358bb88>
+## <environment: 0x7fb0afa4b988>
 ```
 
 Here, `ff` contains four functions and the idea is that the first of these adds 1 to its argument, the second add 2, and so on.
@@ -517,7 +517,7 @@ ff[[1]](1)
 When we get the element `ff[[1]]` we get the first function we created in the loop. If we substitute into `f` the value we gave in the call, this is 
 
 ```r
-function(b) i + b`
+function(b) i + b
 ```
 
 The parameter `a` from `f` has been set to the parameter we gave it, `i`, but `i` has not been evaluated at this point!
@@ -724,7 +724,7 @@ eval(p$x, list(y = 4))
 
 
 
-Actually, manipulating expressions and the scope they are evaluated in is a very powerful tool, but beyond what we will cover in this book. It is the topic for later books in the series, on so-called meta-programming.
+Actually, manipulating expressions and the scope they are evaluated in is a very powerful tool, but beyond what we will cover in this book. It is the topic for a later book in the series: *Meta-programming in R*.
 
 ## Vectorised functions
 
@@ -896,7 +896,7 @@ scale_with(1:6, 1:3)
 
 Simple functions are usually already vectorised, or can easily be made vectorised using `ifelse`, but for functions more complex the `Vectorize` function is needed.
 
-As an example we can consider a tree data structure and a function for computing the node depth of a named node -- the node depth defined as the distance from the root. For simplicity we consider only binary trees. We can implement trees using lists:
+As an example we can consider a tree data structure and a function for computing the node depth of a named node---the node depth defined as the distance from the root. For simplicity we consider only binary trees. We can implement trees using lists:
 
 
 ```r
@@ -1025,7 +1025,7 @@ Here we used quotes twice, first to get a variable name we could assign to for `
 
 Just because all control structures and operators in R are functions that you can overwrite, you shouldn't go doing that without extreme caution. You should *never* change the functions the control structures point to, and you should not change the other operators unless you are defining operators on new types where it is relatively safe to do so (and I will tell you how to in the *Object Oriented Programming in R* in this series). Defining entirely new infix operators, however, can be quite useful if they simplify expressions you write often.
 
-As an example let us do something else with the `%x%` operator -- after all, there is no point in having two different operators for multiplication. We can make it replicate the left-hand side a number of times given by the right-hand side:
+As an example let us do something else with the `%x%` operator---after all, there is no point in having two different operators for multiplication. We can make it replicate the left-hand side a number of times given by the right-hand side:
 
 
 ```r
@@ -1055,7 +1055,7 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1] 1.13358 1.13358 1.13358 1.13358
+## [1] 0.7096367 0.7096367 0.7096367 0.7096367
 ```
 
 Lazy evaluation only takes you so far.
@@ -1072,8 +1072,7 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1]  0.07215175 -1.01280296 -0.96894262
-## [4]  1.73404764
+## [1]  0.3572523  0.3733601 -0.8712691 -0.9961701
 ```
 
 Here the `match.call` function just gets us a representation of the current function call from which we can extract the expression without evaluating it. We then use `replicate` to evaluate it a number of times in the calling function's scope.
@@ -1145,7 +1144,7 @@ address(x)
 ```
 
 ```
-## [1] "0x1060ec000"
+## [1] "0x10e5d6000"
 ```
 
 ```r
@@ -1161,7 +1160,7 @@ address(x)
 ```
 
 ```
-## [1] "0x108712000"
+## [1] "0x110bfc000"
 ```
 
 When we assign to the first element in this vector, we see that the entire vector is being copied. This might look odd since I just told you that R would only copy a vector if it had to, and here we are just modifying an element in it, and no other variable refers to it.
@@ -1223,7 +1222,7 @@ address(x)
 ```
 
 ```
-## [1] "0x108712000"
+## [1] "0x110bfc000"
 ```
 
 All expression evaluations modify the memory a little, up or down, but the change is much smaller than the entire vector so we can see that the vector isn't being copied, and the address remains the same.
@@ -1244,7 +1243,7 @@ address(x)
 ```
 
 ```
-## [1] "0x108712000"
+## [1] "0x110bfc000"
 ```
 
 ```r
@@ -1252,7 +1251,7 @@ address(y)
 ```
 
 ```
-## [1] "0x108712000"
+## [1] "0x110bfc000"
 ```
 
 If we change `x` again, though, we need a copy to make the other vector point to the original, unmodified data.
@@ -1271,7 +1270,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10e9de000"
+## [1] "0x115848000"
 ```
 
 ```r
@@ -1279,7 +1278,7 @@ address(y)
 ```
 
 ```
-## [1] "0x108712000"
+## [1] "0x110bfc000"
 ```
 
 But after that copy, we can again assign to `x` without making additional copies.
@@ -1298,7 +1297,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10e9de000"
+## [1] "0x115848000"
 ```
 
 
@@ -1352,7 +1351,7 @@ x <- `names<-`(x, letters[1:4])
 
 No values are harmed in the evaluation of this, but the variable is set to the new value.
 
-We can write our own replacement functions using this syntax. There are just two requirements. The function name has to end with `<-` -- so we need to quote the name when we assign to it -- and the argument for the value that goes to the right-hand side of the assignment has to be named `value`. The last requirement is there so replacement functions can take more than two arguments.
+We can write our own replacement functions using this syntax. There are just two requirements. The function name has to end with `<-` ---so we need to quote the name when we assign to it---and the argument for the value that goes to the right-hand side of the assignment has to be named `value`. The last requirement is there so replacement functions can take more than two arguments.
 
 The `` `attr<-` `` function is an example of this. Attributes are key-value maps that can be associated with objects. You can get the attributes associated with an object using the `attributes` function and set all attributes with the `` `attributes<-` `` function, but you can assign individual attributes using `` `attr<-` ``. It takes three arguments, the object to modify, a `which` parameter that is the name of the attribute to set, and the `value` argument that goes to the right-hand side of the assignment. The `which` argument is passed to the function on the left-hand side together with the object to modify.
 
@@ -1705,7 +1704,7 @@ binary_search <- function(element, x,
 
 This is because you get a `middle` index that equals `first`, so you call recursively on the same problem you were trying to solve, not a simpler one.
 
-You can solve it by never including `middle` in the range you try to solve recursively -- after all, you only call the recursion if you know that `middle` is not the element you are searching for.
+You can solve it by never including `middle` in the range you try to solve recursively---after all, you only call the recursion if you know that `middle` is not the element you are searching for.
 
 
 ```r
@@ -1728,7 +1727,7 @@ binary_search <- function(element, x,
 
 It is crucial that you make sure that all recursive calls actually are working on a smaller problem. For sequences, that typically means making sure that you call recursively on shorter sequences.
 
-For trees, a data structure that is fundamentally recursive -- a tree is either a leaf or an inner node containing a number of children that are themselves also trees -- we call recursively on sub-trees, thus making sure that we are looking at smaller problems in each recursive call.
+For trees, a data structure that is fundamentally recursive---a tree is either a leaf or an inner node containing a number of children that are themselves also trees---we call recursively on sub-trees, thus making sure that we are looking at smaller problems in each recursive call.
 
 The `node_depth` function we wrote in the first chapter is an example of this.
 
@@ -1745,11 +1744,11 @@ node_depth <- function(tree, name, depth = 0) {
 }
 ```
 
-The base cases deal with an empty tree -- an empty tree doesn't contain the node we are looking for, so we trivially return `NA`. If the tree isn't empty, we either have found the node we are looking for, in which case we can return the result. If not, we call recursively on the left tree. We return the result if we found the node we were looking for. Otherwise, we return the result of a recursive call on the right tree (whether we found it or not, if the node wasn't in the tree at all the final result will be `NA`).
+The base cases deal with an empty tree---an empty tree doesn't contain the node we are looking for, so we trivially return `NA`. If the tree isn't empty, we either have found the node we are looking for, in which case we can return the result. If not, we call recursively on the left tree. We return the result if we found the node we were looking for. Otherwise, we return the result of a recursive call on the right tree (whether we found it or not, if the node wasn't in the tree at all the final result will be `NA`).
 
 The functions we have written so far do not combine the results of the sub-problems we solve recursively. The functions are all search functions, and the result they return is either directly found or the result one of the recursive functions return. It is not always that simple, and often you need to do something with the result from the recursive call(s) to solve the larger problem.
 
-A simple example is computing the factorial. The factorial of a number $n$, $n!$ is equal to $n\times (n-1)!$ with a basis case $1!=1$. It is very simple to write a recursive function to return the factorial, but we cannot just return the result of a recursive call. We need to multiply the result we get from the recursive call with $n$.
+A simple example is computing the factorial. The factorial of a number $n$, $n!$, is equal to $n\times (n-1)!$ with a basis case $1!=1$. It is very simple to write a recursive function to return the factorial, but we cannot just return the result of a recursive call. We need to multiply the result we get from the recursive call with $n$.
 
 
 ```r
@@ -2187,7 +2186,7 @@ l_binary_search <- function(element, x,
 }
 ```
 
-The translation always follows this simple pattern, which is why many programming languages will do it for you automatically. We don't get as massive a performance boost by changing this algorithm into a looping version, simply because there aren't that many function calls in a binary search -- the power of logarithmic runtime algorithms -- but we do get a slightly more efficient version. We can again compare the two using `microbenchmark` to measure exactly how much improvement we get:
+The translation always follows this simple pattern, which is why many programming languages will do it for you automatically. We don't get as massive a performance boost by changing this algorithm into a looping version, simply because there aren't that many function calls in a binary search---the power of logarithmic runtime algorithms---but we do get a slightly more efficient version. We can again compare the two using `microbenchmark` to measure exactly how much improvement we get:
 
 
 ```r
@@ -2206,7 +2205,7 @@ microbenchmark(r_binary_search(-1, x),
 ##  41.8440 43.7525 117.331   100
 ```
 
-If your function is *not* tail-recursive it is a lot more work to translate it into a version that uses loops. You will essentially have to simulate the function call stack yourself. That involves a lot more programming, but it is not functional programming and thus is beyond the scope of this book. Not to worry, though, using continuations, a topic we cover later in the book, you can generally translate your functions into tail-recursive functions and then use a trick called a "trampoline" to replace recursion with looks.
+If your function is *not* tail-recursive it is a lot more work to translate it into a version that uses loops. You will essentially have to simulate the function call stack yourself. That involves a lot more programming, but it is not functional programming and thus is beyond the scope of this book. Not to worry, though, using continuations, a topic we cover later in the book, you can generally translate your functions into tail-recursive functions and then use a trick called a "trampoline" to replace recursion with loops.
 
 
 # Scope and Closures
@@ -2371,7 +2370,7 @@ The next expression assigns a value to the variable `x` so after that the global
 ["f -> function(x) 2 * x, "x -> 4]
 ```
 
-In the third expression, we call function `f` and a lot is going on here. First R needs to figure out what the variable name `"f` is referring to. It searches in the chain of environments -- in this case a chain of only one environment -- and finds it in the global environment. So at this point, the scope of the variable `f` is the global environment. It can get the value from that environment, and it gets the function `function(x) 2 * x`.
+In the third expression, we call function `f` and a lot is going on here. First R needs to figure out what the variable name `"f` is referring to. It searches in the chain of environments---in this case a chain of only one environment---and finds it in the global environment. So at this point, the scope of the variable `f` is the global environment. It can get the value from that environment, and it gets the function `function(x) 2 * x`.
 
 When we call the function R creates a new environment to execute the function instance in. This environment is first empty, but it is linked to the global scope.
 
@@ -2540,7 +2539,7 @@ So to briefly summarise how scopes and environments work in R: whenever you eval
 
 The rules for how variables are mapped to values are always the same. It involves a search in the chain of environments that are active at the time the expression is evaluated. The only difficulty is knowing which environments are in the chain at any given time.
 
-Here the rules are not that complex either. We can explicitly create an environment and put it at the top of the chain of environments using the `eval` function, we can create a "call" environment when we pass expressions as arguments to a function -- where the environment will be the same environment chain as where we call the function -- or we can create a new environment by running code inside a function.
+Here the rules are not that complex either. We can explicitly create an environment and put it at the top of the chain of environments using the `eval` function, we can create a "call" environment when we pass expressions as arguments to a function---where the environment will be the same environment chain as where we call the function---or we can create a new environment by running code inside a function.
 
 
 ## Scopes, lazy-evaluation, and default parameters
@@ -3219,9 +3218,9 @@ We just return if `f` only takes a single argument. Then it is already as currie
   arguments <- vector("list", length = n)
 ```
 
-We need to collect the arguments that are passed to the individual functions we create. We cannot simply use parameter arguments `x` and `y` as we did in `curry2` because we do not know how many arguments we would need before we have examined the input function, `f`. In any case, we would need to create names dynamically to make sure they don't clash. Just saving the arguments in a list is simpler, and since it is a list, we can put any kind of values that are passed as arguments in it.
+- We need to collect the arguments that are passed to the individual functions we create. We cannot simply use parameter arguments `x` and `y` as we did in `curry2` because we do not know how many arguments we would need before we have examined the input function, `f`. In any case, we would need to create names dynamically to make sure they don't clash. Just saving the arguments in a list is simpler, and since it is a list, we can put any kind of values that are passed as arguments in it.
 
-Now we need to create the actual function we should return. We do this in steps. The final function we create should call `f` with all the arguments. It takes the last argument as input, so we need to store that in `arguments` -- and since this means modifying a list outside of the scope of the actual function, we need the ``<<-`` assignment operator for that. To call `f` with a list of its arguments we need to use the function `do.call`. It lets us specify the arguments to the function in a list instead of giving them directly as comma-separated arguments.
+Now we need to create the actual function we should return. We do this in steps. The final function we create should call `f` with all the arguments. It takes the last argument as input, so we need to store that in `arguments`---and since this means modifying a list outside of the scope of the actual function, we need the ``<<-`` assignment operator for that. To call `f` with a list of its arguments we need to use the function `do.call`. It lets us specify the arguments to the function in a list instead of giving them directly as comma-separated arguments.
 
 ```r
   last <- function(x) {
@@ -3279,7 +3278,7 @@ It is not *quite* the same semantics as calling `f` directly; we are evaluating 
 
 It is *much* harder to make a transformation in the other direction automatically. If we get a function, we cannot see how many times we would need to call it to get a value, if that is even independent of the parameters we give it, so there is no way to figure out how many parameters we should get for the uncurried version of a curried function.
 
-The `curry` function isn't completely general. We cannot deal with default arguments -- all arguments must be provided in the curried version -- and we cannot create a function where some arguments are fixed, and others are not. The curried version always needs to take the arguments in the exact order the original function takes them.
+The `curry` function isn't completely general. We cannot deal with default arguments---all arguments must be provided in the curried version---and we cannot create a function where some arguments are fixed, and others are not. The curried version always needs to take the arguments in the exact order the original function takes them.
 
 
 ## A parameter binding function
@@ -3335,7 +3334,7 @@ We get the parameters from the first function call and saves them in a list, and
 
 All the building blocks we have seen before, we are just combining them to translate one function into another.
 
-Using `list` here to remember the parameters from `...` means that we are evaluating the parameters. We are explicitly turning off lazy-evaluation in this function. It is possible to keep the lazy evaluation semantics as well, but it requires more work. We would need to use the `eval(substitute(alist(...)))` trick to get the unevaluated parameters into a list -- we saw this trick in the first chapter -- but that would give us raw expressions in the lists, and we would need to be careful to evaluate these in the right environment chain to make it work. I leave this as an exercise to the reader, or you can look at the `partial` function from the `pryr` package to see how it is done.
+Using `list` here to remember the parameters from `...` means that we are evaluating the parameters. We are explicitly turning off lazy-evaluation in this function. It is possible to keep the lazy evaluation semantics as well, but it requires more work. We would need to use the `eval(substitute(alist(...)))` trick to get the unevaluated parameters into a list---we saw this trick in the first chapter---but that would give us raw expressions in the lists, and we would need to be careful to evaluate these in the right environment chain to make it work. I leave this as an exercise to the reader, or you can look at the `partial` function from the `pryr` package to see how it is done.
 
 Such partial binding functions aren't used that often in R. It is just as easy to write closures to bind parameters and those are usually easier to read, so use partial bindings with caution. 
 
@@ -3364,9 +3363,9 @@ my_sum_cont <- function(lst, cont = identity) {
 
 The first function handles the computation in an obvious way by adding the current element to the result of the recursive call. The second function uses an accumulator to make a tail-recursive version, where the accumulator carries a partial sum along with the recursion. The third version also gives us a tail-recursive function but in this case via a continuation function. This function works as the accumulator in the second function, it just wraps the computation inside a function that is passed along in the recursive call.
 
-Here, the continuation captures the partial sum moving down the recursion — the same job as the accumulator has in the second function — but expressed as an as-yet not evaluated function. This function will eventually be called by the sum of values for the rest of the recursion, so the job at this place in the recursion is simply to take the value it will eventually be provided, add the current value, and then call the continuation it was passed earlier to complete the computation.
+Here, the continuation captures the partial sum moving down the recursion---the same job as the accumulator has in the second function---but expressed as an as-yet not evaluated function. This function will eventually be called by the sum of values for the rest of the recursion, so the job at this place in the recursion is simply to take the value it will eventually be provided, add the current value, and then call the continuation it was passed earlier to complete the computation.
 
-For something as simple as a adding the numbers in a list, continuation passing is of course overkill. If you need tail-recursion, the accumulator version is simpler and faster, and in any case, you are just replacing recursion going down the vector with function calls in the continuation moving up again (but see later for a solution to this problem). Still, seeing the three approaches to recursion — direct, accumulator and continuation-passing — in a trivial example makes it easier to see how they work and how they differ.
+For something as simple as a adding the numbers in a list, continuation passing is of course overkill. If you need tail-recursion, the accumulator version is simpler and faster, and in any case, you are just replacing recursion going down the vector with function calls in the continuation moving up again (but see later for a solution to this problem). Still, seeing the three approaches to recursion---direct, accumulator and continuation-passing---in a trivial example makes it easier to see how they work and how they differ.
 
 A common use of continuations is to translate non-tail-recursive functions into tail-recursive. As an example, we return to the function from *[Pure Functional Programming]* that we used to compute the size of a tree. In that solution we needed to handle internal nodes by first calling recursively on the left subtree and then the right subtree, to get the sizes of these, and then combine them and adding one for the internal node. Because we needed the results from two recursive calls, we couldn't directly make the function tail-recursive. Using continuations we can.
 
@@ -3461,7 +3460,7 @@ make_thunk <- function(f, ...) {
 }
 ```
 
-We force the function parameter, `f`, just in case -- we don't want it to change if it refers to an expression that might change after we have defined the thunk. Then we remember the parameters to the function -- this evaluates the parameters, so no lazy evaluation here (it is much harder to keep track of the thunk if we need to keep the evaluation lazy), and then we return a function with no arguments that simply evaluates `f` on the remembered parameters.
+We force the function parameter, `f`, just in case---we don't want it to change if it refers to an expression that might change after we have defined the thunk. Then we remember the parameters to the function---this evaluates the parameters, so no lazy evaluation here (it is much harder to keep track of the thunk if we need to keep the evaluation lazy), and then we return a function with no arguments that simply evaluates `f` on the remembered parameters.
 
 Now we can turn any function into a thunk:
 
@@ -3634,7 +3633,7 @@ factorial(100)
 ## [1] 9.332622e+157
 ```
 
-For computing the size of a tree we just do exactly the same thing. It doesn't matter that the continuation we use here does something more complex -- it calls the depth-first traversal on the right subtree instead of just computing an expression directly -- because it is just a continuation and we just need to wrap it up as a thunk:
+For computing the size of a tree we just do exactly the same thing. It doesn't matter that the continuation we use here does something more complex---it calls the depth-first traversal on the right subtree instead of just computing an expression directly---because it is just a continuation and we just need to wrap it up as a thunk:
 
 
 ```r
@@ -3680,7 +3679,7 @@ Sequences come in two flavours in R, vectors and lists. Vectors can only contain
 
 It, therefore, comes as no surprise that general functions for working on sequences would work on lists. The three functions, `Filter`, `Map`, and `Reduce` are also happy to take vectors, but they are treated just as if you explicitly converted them to lists first. The `Reduce` function returns a value, so not a sequence, of a type that depends on its input, while `Filter` and `Map` both return sequences in the form of a list.
 
-From a programming perspective, it is just as easy to work with lists as it is to work with vectors, but some functions do expect vectors -- plotting functions and functions for manipulating data frames for example -- so sometimes you will have to translate a list from `Filter` or `Map` into a vector. You can do this with the function `unlist`. This function will convert a list into a vector when this is possible, that is when all elements are of the same basic type, and otherwise will just give you the list back. I will use `unlist` in many examples in this chapter just because it makes the output nicer to look at, but in most programs, I do not bother doing so until I really need a vector. A list is just as good for storing sequences.
+From a programming perspective, it is just as easy to work with lists as it is to work with vectors, but some functions do expect vectors---plotting functions and functions for manipulating data frames for example---so sometimes you will have to translate a list from `Filter` or `Map` into a vector. You can do this with the function `unlist`. This function will convert a list into a vector when this is possible, that is when all elements are of the same basic type, and otherwise will just give you the list back. I will use `unlist` in many examples in this chapter just because it makes the output nicer to look at, but in most programs, I do not bother doing so until I really need a vector. A list is just as good for storing sequences.
 
 It is just that 
 
@@ -4989,7 +4988,7 @@ This concludes this book on functional programming in R. You now know all the ba
 
 Getting used to writing functional programs might take a little effort if you are only used to imperative or object-oriented programming, but the combination of higher-order functions and closures is a very powerful paradigm for effective programming and writing pure functions whenever possible makes for code that is much simpler to reason about.
 
-R is not a pure functional programming language, though, so your code will usually mix imperative programming — which in most cases means using loops instead of recursions, both for convenience and efficiency reasons — with functional patterns. With careful programming, you can still keep the changing states of a program to a minimum and keep most of your program pure.
+R is not a pure functional programming language, though, so your code will usually mix imperative programming---which in most cases means using loops instead of recursions, both for convenience and efficiency reasons---with functional patterns. With careful programming, you can still keep the changing states of a program to a minimum and keep most of your program pure.
 
 Helping you keep programming pure is the immutability of data in R. Whenever you “modify” data, you will implicitly create a copy of the data and then modify the copy. For reasoning about your programs, that is good news. It is very hard to create side effects of functions. It does come with some drawbacks, however. Many classical data structures assume that you can modify data. Since you cannot do this in R, you will instead have to construct your data structures such that updating them means creating new, modified, data structures.
 

@@ -11,4 +11,4 @@ I'm currently proofreading the book before putting it as a paperback on Amazon. 
 - [x] Higher order functions
 - [x] Filter, Map, and Reduce
 - [x] Point-free programming
-- [ ] Conclusions
+- [x] Conclusions
