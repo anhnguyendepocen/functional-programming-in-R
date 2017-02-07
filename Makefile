@@ -14,6 +14,10 @@ PANDOC_EPUB_OPTS := $(PANDOC_OPTS_ALL) \
 					--default-image-extension=png \
 					-t epub3 --toc-depth=1 \
 					--epub-cover-image=cover.png
+PANDOC_WORD_OPTS := $(PANDOC_OPTS_ALL) \
+					--default-image-extension=pdf \
+					--variable links-as-notes \
+					--toc-depth=1
 
 #CHAPTERS := 000_header.md \
 			06_point_free_programming.md \
@@ -35,6 +39,9 @@ book.pdf: pdf_book.md templates/latex-template.tex
 
 print_book.pdf: pdf_book.md templates/latex-template.tex
 		$(PANDOC) $(PANDOC_PRINT_OPTS) -o $@ pdf_book.md
+
+book.docx: pdf_book.md 
+	$(PANDOC) $(PANDOC_WORD_OPTS) -o $@ pdf_book.md
 
 book.epub: ebook.md
 	$(PANDOC) $(PANDOC_EPUB_OPTS) -o $@ ebook.md

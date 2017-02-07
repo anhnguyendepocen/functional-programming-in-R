@@ -8,19 +8,7 @@ author: Thomas Mailund
 
 # Introduction
 
-Welcome to the *Advanced Statistical Programming in R* series and this book, *Functional Programming in R*. I wrote the series, and this book, to have teaching material beyond the typical introductory level most textbooks on R have. It covers more advanced techniques used in R programming such as fully exploiting functional programming, writing meta-programs (programming the actual language structures), and writing domain specific languages to embed in R.
-
-## About the series
-
-The *Advanced Statistical Programming in R* series is intended to consist of short single-topic books where each book can be used alone for teaching or learning R. That said, there will, of course, be some dependencies in topics, if not in content, among the books. For instance, functional programming is essential to understand for any serious R programming and the first book in the series covers that. Reading the other books without understanding functional programming will not be fruitful. However, if you are already familiar with functional programming, then you can safely skip the first book.
-
-For each book, I will make clear what I think the prerequisites for reading the book are, but for the entire series I will expect you to already be familiar with programming and the basic R you will see in any introductory book. None of the books will give you a tutorial introduction to the R programming language.
-
-If you have used R before for data analysis and are familiar with writing expressions and functions, and want to take it further and write more advanced R code, then the series is for you.
-
-## About this book
-
-This book is intended to give an introduction to functions in R, and how to write functional programs in R. Functional programming is a style of programming, like object-oriented programming, but one that focuses on data transformations and calculations rather than objects and state.
+Welcome to the *Functional Programming in R*. I wrote this book, to have teaching material beyond the typical introductory level most textbooks on R have. This book is intended to give an introduction to functions in R, and how to write functional programs in R. Functional programming is a style of programming, like object-oriented programming, but one that focuses on data transformations and calculations rather than objects and state.
 
 Where in object-oriented programming you model your programs by describing which states an object can be in and how methods will reveal or modify that state---in functional programming you model programs by describing how functions translate input data to output data. Functions themselves are considered data that you can manipulate, and much of the strength of functional programming comes from manipulating functions, building more complex functions by combining simpler functions.
 
@@ -483,22 +471,22 @@ ff
 ## [[1]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fb0afa49870>
+## <environment: 0x7fc048021f80>
 ## 
 ## [[2]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fb0afa4a800>
+## <environment: 0x7fc048021550>
 ## 
 ## [[3]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fb0afa4ac60>
+## <environment: 0x7fc04801c5f8>
 ## 
 ## [[4]]
 ## function (b) 
 ## a + b
-## <environment: 0x7fb0afa4b988>
+## <environment: 0x7fc04801bb90>
 ```
 
 Here, `ff` contains four functions and the idea is that the first of these adds 1 to its argument, the second add 2, and so on.
@@ -1055,7 +1043,7 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1] 0.7096367 0.7096367 0.7096367 0.7096367
+## [1] -0.4895473 -0.4895473 -0.4895473 -0.4895473
 ```
 
 Lazy evaluation only takes you so far.
@@ -1072,7 +1060,8 @@ rnorm(1) %x% 4
 ```
 
 ```
-## [1]  0.3572523  0.3733601 -0.8712691 -0.9961701
+## [1] -0.01507434 -1.54676104  1.40091297
+## [4]  0.82532076
 ```
 
 Here the `match.call` function just gets us a representation of the current function call from which we can extract the expression without evaluating it. We then use `replicate` to evaluate it a number of times in the calling function's scope.
@@ -1144,7 +1133,7 @@ address(x)
 ```
 
 ```
-## [1] "0x10e5d6000"
+## [1] "0x10f1d0000"
 ```
 
 ```r
@@ -1160,7 +1149,7 @@ address(x)
 ```
 
 ```
-## [1] "0x110bfc000"
+## [1] "0x1117f6000"
 ```
 
 When we assign to the first element in this vector, we see that the entire vector is being copied. This might look odd since I just told you that R would only copy a vector if it had to, and here we are just modifying an element in it, and no other variable refers to it.
@@ -1222,7 +1211,7 @@ address(x)
 ```
 
 ```
-## [1] "0x110bfc000"
+## [1] "0x1117f6000"
 ```
 
 All expression evaluations modify the memory a little, up or down, but the change is much smaller than the entire vector so we can see that the vector isn't being copied, and the address remains the same.
@@ -1243,7 +1232,7 @@ address(x)
 ```
 
 ```
-## [1] "0x110bfc000"
+## [1] "0x1117f6000"
 ```
 
 ```r
@@ -1251,7 +1240,7 @@ address(y)
 ```
 
 ```
-## [1] "0x110bfc000"
+## [1] "0x1117f6000"
 ```
 
 If we change `x` again, though, we need a copy to make the other vector point to the original, unmodified data.
@@ -1270,7 +1259,7 @@ address(x)
 ```
 
 ```
-## [1] "0x115848000"
+## [1] "0x118d0c000"
 ```
 
 ```r
@@ -1278,7 +1267,7 @@ address(y)
 ```
 
 ```
-## [1] "0x110bfc000"
+## [1] "0x1117f6000"
 ```
 
 But after that copy, we can again assign to `x` without making additional copies.
@@ -1297,7 +1286,7 @@ address(x)
 ```
 
 ```
-## [1] "0x115848000"
+## [1] "0x118d0c000"
 ```
 
 
